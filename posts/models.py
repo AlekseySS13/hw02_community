@@ -17,14 +17,11 @@ class Post(models.Model):
     class Meta:
         ordering = ['-pub_date']
     text = models.TextField()
-    pub_date = models.DateTimeField("date published", auto_now_add=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     group = models.ForeignKey(Group, related_name='posts',
                               blank=True, null=True,
                               on_delete=models.SET_NULL)
     def __str__(self):
         return self.text
-
-    # class Meta:
-    #     ordering = ['-pub_date']
-
+   
